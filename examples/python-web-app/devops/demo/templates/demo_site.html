@@ -1,31 +1,127 @@
- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<title>CSS Template with User Registration</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {
- margin-left: 200px;
- background: #5d9ab2 url("img_tree.png") no-repeat top left;
+* {
+  box-sizing: border-box;
 }
 
-.center_div {
- border: 1px solid gray;
- margin-left: auto;
- margin-right: auto;
- width: 90%;
- background-color: #d0f0f6;
- text-align: left;
- padding: 8px;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #555;
+  padding: 30px;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 30%;
+  height: 300px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+  height: 300px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #847;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
 }
 </style>
 </head>
 <body>
 
-<div class="center_div">
- <h1>Hello World!</h1>
-  <h1>Welcome to Rizwan's Blog!</h1>
- <p>This blog contains some interesting videos and valuable information about DevOps. Lets make learning more interesting and fun together.</p>
-</div>
 
-</body>
-</html>
+<header>
+  <h2>Welcome to Rizwan's Blog!! Learn DevOps with me here..</h2>
+</header>
+
+<section>
+  <nav>
+    <ul>
+      <li><a href="www.youtube.com/@Abdulrizwan">YouTube</a></li>
+      <li><a href="www.linkedin.com/in/Abdulrizwan-77b33996/">LinkedIn</a></li>
+      <li><a href="https://telegram.me/abdulrizwan">Telegram</a></li>
+    </ul>
+  </nav>
+
+  <article>
+    <h1>Agenda</h1>
+    <p>Lets Learn DevOps with strong foundational knowledge and practical understanding</p>
+    <p>Stay tuned for more updates and Please share this blog with your friends and colleagues</p>
+  </article>
+
+  <article>
+    <h1>Register your interest here for more updates</h1>
+    <form id="registrationForm">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" required><br>
+      <label for="contact">Contact Number:</label><br>
+      <input type="text" id="contact" name="contact" required><br>
+      <label for="dateOfBirth">Year of Graduation:</label><br>
+      <input type="date" id="dateOfBirth" name="dateOfBirth" required><br>
+      <label for="email">Email ID:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <div id="successMessage" style="display: none;">
+      <p>Thanks for your interest! Please keep an eye on your emails for interesting updates.</p>
+    </div>
+  </article>
+</section>
+
+<footer>
+  <p>@Rizwan's blog</p>
+</footer>
+
+<script>
+// Add event listener to the form for submission
+document.getElementById("registrationForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent default form submission
+
+  // Show the success message
+  document.getElementById("successMessage").style.display = "block";
+
+  // Simulate form submission (
 
